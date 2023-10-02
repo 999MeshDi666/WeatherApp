@@ -1,11 +1,14 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { global } from '../../assets/styles/global';
+import Container from '../components/Container';
 const IntroScreen = ({navigation}) =>{
     return(
-        <View style={global.container}>
+        <Container>
             <View>
                 <Text style={[global.text, styles.title]}>
-                    Your Weather App
+                    {`Your 
+                      Weather 
+                      App`}
                 </Text>
                 <Text style={[global.text, styles.subtitle]}>
                     All weather forecast information in one app
@@ -19,7 +22,7 @@ const IntroScreen = ({navigation}) =>{
                     Start
                 </Text>
             </TouchableOpacity>
-        </View>
+        </Container>
     )   
 }
 
@@ -27,7 +30,8 @@ const styles = StyleSheet.create({
     
     title: {
         fontSize: 45,
-        fontWeight: "bold"
+        fontFamily: "Montserrat-ExtraBold",
+        lineHeight: 20
     },
     subtitle: {
         fontSize: 16,

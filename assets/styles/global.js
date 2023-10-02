@@ -9,6 +9,7 @@ export const global = StyleSheet.create({
     },
     text: {
         color: "#fff",
-        fontSize: 14
+        fontSize: 14,
+        fontFamily: "Montserrat-Regular",
     }
 })

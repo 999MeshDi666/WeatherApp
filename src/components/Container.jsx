@@ -1,12 +1,13 @@
 import { useCallback } from 'react';
-import { View } from 'react-native';
+import {View} from 'react-native';
 import { useFonts } from 'expo-font';
 import { global } from '../../assets/styles/global';
 import * as SplashScreen from 'expo-splash-screen';
+import Background from './Background';
 
 SplashScreen.preventAutoHideAsync();
 
-const Container= ({children}) =>{
+const Container= ({hasBackground = false, children}) =>{
     const [fontsLoaded] = useFonts({
         'Montserrat-Regular': require('../../assets/fonts/Montserrat-Regular.ttf'),
         'Montserrat-Light': require('../../assets/fonts/Montserrat-Light.ttf'),
@@ -26,8 +27,10 @@ const Container= ({children}) =>{
     }
     return(
         <View style={global.container} onLayout={onLayoutRootView}> 
+            {hasBackground && <Background/>}
             {children}
         </View>
     )
 }
+
 export default Container;

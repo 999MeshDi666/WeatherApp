@@ -7,9 +7,20 @@ export const global = StyleSheet.create({
         backgroundColor: "#B8D9FF",
        
     },
+    componentBox: {
+        borderWidth: 1,
+        borderRadius: 10,
+        borderColor: "#000",
+        backgroundColor: "#9DBDE2",
+    },
     text: {
         color: "#fff",
         fontSize: 14,
-        fontFamily: "Montserrat-Regular",
+        fontFamily: "Montserrat-Bold",
+    },
+    title: {
+        color: "#fff",
+        fontSize: 25,
+        fontFamily: "Montserrat-Bold",
     }
 })

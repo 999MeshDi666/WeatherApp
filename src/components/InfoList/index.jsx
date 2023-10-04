@@ -7,7 +7,7 @@ const InfoList = ({weatherData}) =>{
         {
           src: `https:${weatherData?.current?.condition.icon}`,
           info: weatherData?.current?.condition.text,
-          style: {width:45, height:45}
+          style: {margin: 0,width:45, height:45}
         },
         {
           src: require("../../../assets/images/weather-images/thermometer.png"),
@@ -17,34 +17,30 @@ const InfoList = ({weatherData}) =>{
         {
           src: require("../../../assets/images/weather-images/fahrenheit.png"),
           info: `Fahrenheit: ${weatherData?.current?.temp_f}`,
-          style: {margin: 8, width:35, height:35}
+          style: {width:35, height:35}
         },
         {
           src: require("../../../assets/images/weather-images/wind.png"),
           info:  `Mph: ${weatherData?.current?.wind_mph} | Kph: ${weatherData?.current?.wind_kph}`,
-          style: {margin: 8, width:35, height:35}
+          style: {width:35, height:35}
         }
     ]
     const locationInfo = [
         {
             src: require("../../../assets/images/weather-images/city.png"),
             info: weatherData?.location?.name,
-            style: {margin: 10}
         },
         {
             src: require("../../../assets/images/weather-images/country.png"),
             info: weatherData?.location?.country,
-            style: {margin: 10}
         },
         {
             src: require("../../../assets/images/weather-images/timezone.png"),
             info: weatherData?.location?.tz_id,
-            style: {margin: 10}
         },
         {
             src: require("../../../assets/images/weather-images/date.png"),
             info: weatherData?.location?.localtime,
-            style: {margin: 10}
         },
 
     ]
@@ -64,7 +60,7 @@ const InfoList = ({weatherData}) =>{
                 <Text style={[global.text, styles.title]}>
                     Location info:
                 </Text>
-                <View style={{marginTop: 20}}>
+                <View style={{marginTop: 20 }}>
                     {locationInfo.map((item, index)=>(
                         <InfoListItem key={index} item={item}/>)
                     )}

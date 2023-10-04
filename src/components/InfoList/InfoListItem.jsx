@@ -4,8 +4,14 @@ import { global } from '../../../assets/styles/global';
 const InfoListItem = ({item, index})=>{
     return (
         <View style={styles.infoListItem}>
-            <Image style={item.style} source={index === 0? {uri: item.src}:item.src}/>
-            <Text style={[global.text, styles.infoItemText]}>{item.info}</Text>
+            <Image 
+                style={[{margin: 8}, item.style]} 
+                source={index === 0? {uri: item.src}:item.src}
+            />
+            <Text 
+                style={[global.text, styles.infoItemText]}>
+                {item.info}
+            </Text>
         </View>
     )
 }

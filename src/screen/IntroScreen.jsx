@@ -5,19 +5,31 @@ import Container from '../components/Container';
 const images = [
     {
         src: require("../../assets/images/weather-images/sun.png"),
-        class: "imgSun"
+        style: {
+            top: 40, 
+            left: 120
+        },
     },
     {
         src: require("../../assets/images/weather-images/cloud.png"),
-        class: "imgCloud1"
+        style: {
+            top: -32, 
+            left: 40
+        },
     },
     {
         src: require("../../assets/images/weather-images/cloud.png"),
-        class: "imgCloud2"
+        style: {
+            top: 5,  
+            right: 45
+        },
     },
     {
         src: require("../../assets/images/weather-images/cloud.png"),
-        class: "imgCloud3"
+        style: {
+            top: 100, 
+            left: 50
+        },
     }
 ]
 
@@ -29,7 +41,7 @@ const IntroScreen = ({navigation}) =>{
                     {images.map((img, index)=>(
                         <Image
                             key={index}
-                            style={[{position: "absolute"}, styles[img.class]]} 
+                            style={[{position: "absolute"}, img.style]} 
                             source={img.src}
                         />
                     ))}
@@ -65,22 +77,6 @@ const styles = StyleSheet.create({
         marginTop: 20,
         fontFamily: "Montserrat-Medium",
         width: 300
-    },
-    imgSun: {
-        top: 40, 
-        left: 120
-    },
-    imgCloud1: {
-        top: -32, 
-        left: 40
-    },
-    imgCloud2: {
-        top: 5,  
-        right: 45
-    },
-    imgCloud3: {
-        top: 100, 
-        left: 50
     },
     buttonContainer:{
         height: 60,

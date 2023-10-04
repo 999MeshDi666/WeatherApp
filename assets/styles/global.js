@@ -22,5 +22,6 @@ export const global = StyleSheet.create({
         color: "#fff",
         fontSize: 25,
         fontFamily: "Montserrat-Bold",
+      
     }
 })

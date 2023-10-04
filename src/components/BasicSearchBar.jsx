@@ -31,7 +31,7 @@ const BasicSearchBar = ({setWeatherData}) =>{
       setWeatherData(response.data)
     } catch (error) {
       console.error(error);
-      setWeatherData([])
+      setWeatherData({})
     }
   }
  

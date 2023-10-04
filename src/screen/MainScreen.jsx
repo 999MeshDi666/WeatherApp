@@ -3,66 +3,48 @@ import { useState } from 'react';
 import { global } from '../../assets/styles/global';
 import BasicSearchBar from '../components/BasicSearchBar';
 import Container from '../components/Container';
-
+import InfoList from '../components/InfoList';
 
 const MainScreen = () =>{
-  const [weatherData, setWeatherData] = useState();
 
+  const [weatherData, setWeatherData] = useState({});
+  console.log(weatherData)
   return (
     <Container hasBackground={true}>
       <BasicSearchBar setWeatherData={setWeatherData}/>
-      <View style={styles.infoContainer}>
-        <TouchableOpacity 
-          style={styles.infoBtn} 
-          activeOpacity={0.8}
-        >
-          <Text style={[global.text, styles.infoBtnText]}>see more</Text>
-        </TouchableOpacity> 
-        <View>
-          <Text style={global.title}>
-            Forecast today:
-          </Text>
-          <View style={{marginTop: 20}}>
-            <View style={styles.infoListItem}>
-              <Image source={ require("../../assets/images/weather-images/thermometer.png")}/>
-              <Text style={[global.text, {marginLeft: 10}]}>Something</Text>
-            </View>
-            <View style={styles.infoListItem}>
-              <Image source={ require("../../assets/images/weather-images/thermometer.png")}/>
-              <Text style={[global.text, {marginLeft: 10}]}>Something</Text>
-            </View>
-            <View style={styles.infoListItem}>
-              <Image source={ require("../../assets/images/weather-images/fahrenheit.png")}/>
-              <Text style={[global.text, {marginLeft: 10}]}>Something</Text>
-            </View>
-            <View style={styles.infoListItem}>
-              <Image source={ require("../../assets/images/weather-images/wind.png")}/>
-              <Text style={[global.text, {marginLeft: 10}]}>Something</Text>
-            </View>
-          </View>
-         
-        </View>
-      </View>
+      {weatherData ? 
+        (<View style={styles.detailsInfoContainer}>
+          <TouchableOpacity 
+            style={styles.detailsInfoBtn} 
+            activeOpacity={0.8}
+          >
+            <Text style={[global.text, styles.detailsInfoBtnText]}>see more</Text>
+          </TouchableOpacity> 
+          <InfoList weatherData={weatherData}/>
+        </View>): 
+          (<Text 
+            style={[global.text, styles.loadingBtn]}>
+              Loading...
+            </Text>)}
     </Container>
   );
 }
 const styles = StyleSheet.create({
-  infoContainer: {
+  detailsInfoContainer: {
     marginTop: 26
   },
-  infoBtn: {
+  detailsInfoBtn: {
     marginBottom: 10
   },
-  infoBtnText: {
-    fontSize: 16,
+  detailsInfoBtnText: {
+    fontSize: 18,
     textAlign: "right",
-    fontFamily: "Montserrat-Bold",
+    textDecorationLine: "underline",
   },
-  infoListItem: {
-    flexDirection: "row",
-    alignItems: "flex-end",
-    marginBottom: 6
-  }
-  
+  loadingBtn:{
+    textAlign: "center", 
+    marginTop: 200, 
+    fontSize: 25
+  },  
 });
 export default MainScreen;

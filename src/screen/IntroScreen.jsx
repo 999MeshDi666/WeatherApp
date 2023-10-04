@@ -63,7 +63,6 @@ const styles = StyleSheet.create({
     },
     subtitle: {
         marginTop: 20,
-        fontSize: 16,
         fontFamily: "Montserrat-Medium",
         width: 300
     },

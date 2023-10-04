@@ -27,7 +27,7 @@ const InfoList = ({weatherData}) =>{
     ]
     return(
         <View>
-            <Text style={global.title}>
+            <Text style={[global.text, {fontSize: 25}]}>
                 Forecast today:
             </Text>
             <View style={{marginTop: 20}}>

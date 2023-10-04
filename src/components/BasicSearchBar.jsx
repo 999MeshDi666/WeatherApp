@@ -54,7 +54,7 @@ const BasicSearchBar = ({setWeatherData}) =>{
             onPress={handleSearchQuery}
            >
           <Text style={[global.text]}>
-            <MaterialIcons name="search" size={26} color="#fff" />
+            <MaterialIcons name="search" size={28} color="#fff" />
           </Text>
         </TouchableOpacity>
       
@@ -70,15 +70,14 @@ const styles = StyleSheet.create({
     },
     
     searchBar: {
-      height: 40,
-      width: 244,
+      height: 45,
+      width: 280,
       marginRight: 10,
       paddingVertical: 10,
       paddingHorizontal: 20,
       fontFamily: "Montserrat-Bold",
-      fontSize: 16
     },
     searchBarBtn: {
-      padding: 6,
+      padding: 8,
     }
 });

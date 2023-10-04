@@ -8,7 +8,7 @@ import InfoList from '../components/InfoList';
 const MainScreen = () =>{
 
   const [weatherData, setWeatherData] = useState({});
-  console.log(weatherData)
+ 
   return (
     <Container hasBackground={true}>
       <BasicSearchBar setWeatherData={setWeatherData}/>
@@ -24,8 +24,8 @@ const MainScreen = () =>{
         </View>): 
           (<Text 
             style={[global.text, styles.loadingBtn]}>
-              Loading...
-            </Text>)}
+            Loading...
+          </Text>)}
     </Container>
   );
 }

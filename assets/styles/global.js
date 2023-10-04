@@ -14,14 +14,8 @@ export const global = StyleSheet.create({
         backgroundColor: "#9DBDE2",
     },
     text: {
+        fontSize: 16,
         color: "#fff",
-        fontSize: 14,
         fontFamily: "Montserrat-Bold",
     },
-    title: {
-        color: "#fff",
-        fontSize: 25,
-        fontFamily: "Montserrat-Bold",
-      
-    }
 })

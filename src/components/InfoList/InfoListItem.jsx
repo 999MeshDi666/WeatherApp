@@ -1,14 +1,11 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import { global } from "../../../assets/styles/global";
 
-const InfoListItem = ({ item, index }) => {
+const InfoListItem = ({ src, info, style }) => {
   return (
     <View style={styles.infoListItem}>
-      <Image
-        style={[{ margin: 8 }, item.style]}
-        source={index === 0 ? { uri: item.src } : item.src}
-      />
-      <Text style={[global.text, styles.infoItemText]}>{item.info}</Text>
+      <Image width={32} height={32} style={[{ margin: 8 }, style]} source={{ uri: src }} />
+      <Text style={[global.text, styles.infoItemText]}>{info}</Text>
     </View>
   );
 };
@@ -16,6 +13,7 @@ const styles = StyleSheet.create({
   infoListItem: {
     flexDirection: "row",
     alignItems: "center",
+  
   },
   infoItemText: {
     marginLeft: 10,

@@ -1,7 +1,8 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import MainScreen from './src/screen/MainScreen';
-import IntroScreen from './src/screen/IntroScreen';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import MainScreen from "./src/screen/MainScreen";
+import IntroScreen from "./src/screen/IntroScreen";
+import ForecastScreen from "./src/screen/ForecastScreen";
 
 const header = {
   headerStyle: {
@@ -9,18 +10,16 @@ const header = {
   },
   title: "",
   headerShadowVisible: false,
-}
+};
 const NavStack = createNativeStackNavigator();
 export default function App() {
-  
   return (
     <NavigationContainer>
       <NavStack.Navigator initialRouteName="Intro" screenOptions={header}>
-        <NavStack.Screen name="Intro" component={IntroScreen}/>
-        <NavStack.Screen name="Main" component={MainScreen}/>
+        <NavStack.Screen name="Intro" component={IntroScreen} />
+        <NavStack.Screen name="Main" component={MainScreen} />
+        <NavStack.Screen name="Forecast" component={ForecastScreen} />
       </NavStack.Navigator>
     </NavigationContainer>
   );
 }
-
-

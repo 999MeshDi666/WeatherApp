@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { useState } from "react";
 import { global } from "../../assets/styles/global";
 import BasicSearchBar from "../components/BasicSearchBar";
 import Container from "../components/Container";
 import InfoList from "../components/InfoList";
 
-const MainScreen = () => {
+const MainScreen = ({ navigation }) => {
   const [weatherData, setWeatherData] = useState({});
 
   return (
@@ -13,7 +13,10 @@ const MainScreen = () => {
       <BasicSearchBar setWeatherData={setWeatherData} />
       {weatherData ? (
         <View style={styles.detailsInfoContainer}>
-          <TouchableOpacity style={styles.detailsInfoBtn} activeOpacity={0.8}>
+          <TouchableOpacity
+            style={styles.detailsInfoBtn}
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Forecast", weatherData)}>
             <Text style={[global.text, styles.detailsInfoBtnText]}>
               see more
             </Text>

@@ -1,6 +1,7 @@
 import { StyleSheet, View, Text } from "react-native";
 import InfoListItem from "./InfoListItem";
 import { global } from "../../../assets/styles/global";
+import {Asset} from 'expo-asset';
 
 const InfoList = ({ weatherData }) => {
   const weatherInfo = [
@@ -10,37 +11,37 @@ const InfoList = ({ weatherData }) => {
       style: { margin: 0, width: 45, height: 45 },
     },
     {
-      src: require("../../../assets/images/weather-images/thermometer.png"),
+      src: Asset.fromModule(require("../../../assets/images/weather-images/thermometer.png")).uri,
       info: `Temperature: ${weatherData?.current?.temp_c}°С`,
-      style: { margin: 12, width: 24, height: 35 },
+      style: { width: 28, height: 35 },
     },
     {
-      src: require("../../../assets/images/weather-images/fahrenheit.png"),
+      src: Asset.fromModule(require("../../../assets/images/weather-images/fahrenheit.png")).uri,
       info: `Fahrenheit: ${weatherData?.current?.temp_f}`,
       style: { width: 35, height: 35 },
     },
     {
-      src: require("../../../assets/images/weather-images/wind.png"),
+      src: Asset.fromModule(require("../../../assets/images/weather-images/wind.png")).uri,
       info: `Mph: ${weatherData?.current?.wind_mph} | Kph: ${weatherData?.current?.wind_kph}`,
       style: { width: 35, height: 35 },
     },
   ];
   const locationInfo = [
     {
-      src: require("../../../assets/images/weather-images/city.png"),
+      src: Asset.fromModule(require("../../../assets/images/weather-images/city.png")).uri,
       info: weatherData?.location?.name,
     },
     {
-      src: require("../../../assets/images/weather-images/country.png"),
+      src: Asset.fromModule(require("../../../assets/images/weather-images/country.png")).uri,
       info: weatherData?.location?.country,
     },
     {
-      src: require("../../../assets/images/weather-images/timezone.png"),
+      src: Asset.fromModule(require("../../../assets/images/weather-images/timezone.png")).uri,
       info: weatherData?.location?.tz_id,
     },
     {
-      src: require("../../../assets/images/weather-images/date.png"),
-      info: weatherData?.location?.localtime,
+      src: Asset.fromModule(require("../../../assets/images/weather-images/date.png")).uri,
+      info: weatherData?.location?.localtime.split(" ")[0],
     },
   ];
   return (
@@ -49,7 +50,13 @@ const InfoList = ({ weatherData }) => {
         <Text style={[global.text, styles.title]}>Forecast today:</Text>
         <View style={{ marginTop: 20 }}>
           {weatherInfo.map((item, index) => (
-            <InfoListItem key={index} item={item} index={index} />
+            <InfoListItem
+              key={index}
+              src={item.src}
+              info={item.info}
+              style={item.style}
+              index={index}
+            />
           ))}
         </View>
       </View>
@@ -57,7 +64,7 @@ const InfoList = ({ weatherData }) => {
         <Text style={[global.text, styles.title]}>Location info:</Text>
         <View style={{ marginTop: 20 }}>
           {locationInfo.map((item, index) => (
-            <InfoListItem key={index} item={item} />
+            <InfoListItem key={index} info={item.info} src={item.src} style={item.style}/>
           ))}
         </View>
       </View>

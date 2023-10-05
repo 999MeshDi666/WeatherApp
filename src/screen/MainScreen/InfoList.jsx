@@ -1,5 +1,5 @@
-import { StyleSheet, View, Text } from "react-native";
-import InfoListItem from "./InfoListItem";
+import { View, Text } from "react-native";
+import InfoListItem from "../../components/InfoListItem";
 import { global } from "../../../assets/styles/global";
 import {Asset} from 'expo-asset';
 
@@ -47,7 +47,7 @@ const InfoList = ({ weatherData }) => {
   return (
     <View>
       <View>
-        <Text style={[global.text, styles.title]}>Forecast today:</Text>
+        <Text style={[global.text, { fontSize: 25,}]}>Forecast today:</Text>
         <View style={{ marginTop: 20 }}>
           {weatherInfo.map((item, index) => (
             <InfoListItem
@@ -61,7 +61,7 @@ const InfoList = ({ weatherData }) => {
         </View>
       </View>
       <View style={{ marginTop: 30 }}>
-        <Text style={[global.text, styles.title]}>Location info:</Text>
+        <Text style={[global.text, { fontSize: 25}]}>Location info:</Text>
         <View style={{ marginTop: 20 }}>
           {locationInfo.map((item, index) => (
             <InfoListItem key={index} info={item.info} src={item.src} style={item.style}/>
@@ -72,9 +72,5 @@ const InfoList = ({ weatherData }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 25,
-  },
-});
+
 export default InfoList;

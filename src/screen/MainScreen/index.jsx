@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { useState } from "react";
-import { global } from "../../assets/styles/global";
-import BasicSearchBar from "../components/BasicSearchBar";
-import Container from "../components/Container";
+import { global } from "../../../assets/styles/global";
+import BasicSearchBar from "../../components/BasicSearchBar";
+import Container from "../../components/Container";
 import InfoList from "../components/InfoList";
 
 const MainScreen = ({ navigation }) => {

@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Image } from "react-native";
-import { global } from "../../../assets/styles/global";
+import { global } from "../../assets/styles/global";
 
 const InfoListItem = ({ src, info, style }) => {
   return (

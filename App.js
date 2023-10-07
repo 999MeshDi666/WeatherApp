@@ -17,7 +17,7 @@ export default function App() {
     <NavigationContainer>
       <NavStack.Navigator initialRouteName="Intro" screenOptions={header}>
         <NavStack.Screen name="Intro" component={IntroScreen} />
-        <NavStack.Screen name="Main" component={MainScreen} />
+        <NavStack.Screen name="Main" options={{headerBackVisible: false}}  component={MainScreen} />
         <NavStack.Screen name="Forecast" component={ForecastScreen} />
       </NavStack.Navigator>
     </NavigationContainer>

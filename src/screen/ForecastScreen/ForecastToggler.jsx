@@ -3,7 +3,7 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import { global } from "../../assets/styles/global";
+import { global } from "../../../assets/styles/global";
 
 const ForecastToggler = ({setForecastId, forecastId, forecast, index}) =>{
   return(

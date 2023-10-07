@@ -1,26 +1,26 @@
-import { Text, View } from "react-native";
-import { useState } from "react";
-import { global } from "../../../assets/styles/global";
-import Container from "../../components/Container";
-import ForecastToggler from "./ForecastToggler";
-import ForecastDetails from "./ForecastDetails";
+import { Text, View } from 'react-native';
+import { useState } from 'react';
+import { global } from '../../../assets/styles/global';
+import Container from '../../components/Container';
+import ForecastToggler from './ForecastToggler';
+import ForecastDetails from './ForecastDetails';
 
 const ForecastScreen = ({ route }) => {
   const data = route.params?.forecast;
   const [forecastId, setForecastId] = useState(0);
-  
+
   return (
     <Container hasBackground={true}>
       <View>
-        <Text style={[global.text, { fontSize: 25,}]}>Three day forecast:</Text>
+        <Text style={[global.text, { fontSize: 25 }]}>Three day forecast:</Text>
         <View
           style={{
             marginTop: 15,
-            flexDirection: "row",
-            justifyContent: "space-around",
+            flexDirection: 'row',
+            justifyContent: 'space-around',
           }}>
           {data?.forecastday.map((forecast, index) => (
-            <ForecastToggler  
+            <ForecastToggler
               setForecastId={setForecastId}
               forecastId={forecastId}
               forecast={forecast}
@@ -28,15 +28,13 @@ const ForecastScreen = ({ route }) => {
             />
           ))}
         </View>
-        
       </View>
-      <View style={{ marginTop: 25, flex:1 }}>
-          <Text 
-            style={[global.text, { fontSize: 25, marginBottom: 15}]}>
-             Forecast hours:
-          </Text>
-            <ForecastDetails data={data.forecastday[forecastId].hour}/>
-        </View>
+      <View style={{ marginTop: 25, flex: 1 }}>
+        <Text style={[global.text, { fontSize: 25, marginBottom: 15 }]}>
+          Forecast hours:
+        </Text>
+        <ForecastDetails data={data.forecastday[forecastId].hour} />
+      </View>
     </Container>
   );
 };

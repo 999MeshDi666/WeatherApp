@@ -1,15 +1,9 @@
-import {
-  Text,
-  TouchableOpacity,
-  Image,
-} from "react-native";
-import { global } from "../../../assets/styles/global";
+import { Text, TouchableOpacity, Image } from 'react-native';
+import { global } from '../../../assets/styles/global';
 
-const ForecastToggler = ({setForecastId, forecastId, forecast, index}) =>{
-  return(
-    <TouchableOpacity
-      activeOpacity={0.8}
-      onPress={() => setForecastId(index)}>
+const ForecastToggler = ({ setForecastId, forecastId, forecast, index }) => {
+  return (
+    <TouchableOpacity activeOpacity={0.8} onPress={() => setForecastId(index)}>
       <Image
         width={80}
         height={80}
@@ -19,13 +13,13 @@ const ForecastToggler = ({setForecastId, forecastId, forecast, index}) =>{
         style={[
           global.text,
           forecastId === index && {
-            borderBottomColor: "#fff",
+            borderBottomColor: '#fff',
             borderBottomWidth: 2,
           },
         ]}>
         {forecast.date}
       </Text>
-  </TouchableOpacity>
-  )
-}
+    </TouchableOpacity>
+  );
+};
 export default ForecastToggler;

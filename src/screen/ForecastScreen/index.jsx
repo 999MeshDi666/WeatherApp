@@ -21,6 +21,7 @@ const ForecastScreen = ({ route }) => {
           }}>
           {data?.forecastday.map((forecast, index) => (
             <ForecastToggler
+              key={index}
               setForecastId={setForecastId}
               forecastId={forecastId}
               forecast={forecast}
